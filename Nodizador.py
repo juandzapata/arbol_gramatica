@@ -31,7 +31,22 @@ class Nodizador:
                         nodoHijo.padre = nodo
                         if self.buscarNodo(nodoHijo.dato) is None:
                             self.nodos.append(nodoHijo)
-                        nodo.agregar_hijo(nodoHijo)           
+                        nodo.agregar_hijo(nodoHijo)
+                
+                if nodoPadre.padre is None:
+                    nodoPadre = self.buscarComoHijo(nodo)
+                    if nodoPadre is not None:
+                        for hijo in nodoPadre.hijos:
+                            if hijo.dato == nodo.dato:
+                                nodo = hijo
+
+                    nodo.padre = nodoPadre
+                    nodoHijo = Nodo(self.datos[i + 1])
+                    nodoHijo.padre = nodo
+                    if self.buscarNodo(nodoHijo.dato) is None:
+                        self.nodos.append(nodoHijo)
+                    nodo.agregar_hijo(nodoHijo)
+
             else:
                 nodoPadre = Nodo(self.datos[i])
                 nodoAbuelo = self.buscarComoHijo(nodoPadre)
