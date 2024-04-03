@@ -77,9 +77,8 @@ class Nodizador:
         self.mostrarArbolRecursivo(self.nodos[0])
 
     def mostrarArbolRecursivo(self, nodo, nivel = 0):
-        print(' ' * nivel + nodo.dato)
+        print(' ' * nivel * 3 + '|--' + nodo.dato)
         if nodo.hijos:
             for hijo in nodo.hijos:
                 self.mostrarArbolRecursivo(hijo, nivel + 1)
-                
         
